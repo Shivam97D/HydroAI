@@ -1,0 +1,214 @@
+.mapWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+/* Fullscreen mode — fill the whole viewport */
+.fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+  min-height: 100vh !important;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  background: var(--bg-deep);
+}
+
+.fullscreen .map { min-height: 100vh; }
+
+/* ── Layer toggle (top-left) ─────────────────────────────────────────────── */
+.layerToggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 2px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: 3px;
+  box-shadow: var(--shadow-md);
+}
+
+.layerBtn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--r-md) - 2px);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.layerBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.layerBtn.layerActive {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--border-default);
+  font-weight: 600;
+}
+
+/* ── Fullscreen button (top-right) ───────────────────────────────────────── */
+.fullscreenBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--t-fast);
+}
+
+.fullscreenBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── Legend (bottom-right) ───────────────────────────────────────────────── */
+.legend {
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  z-index: 1000;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 148px;
+}
+
+.legendTitle {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.legendDivider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 2px 0;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendSwatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendLine {
+  width: 14px;
+  height: 3px;
+  background: #00bfff;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legendArrow {
+  width: 14px;
+  text-align: center;
+  color: #00c8ff;
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legendIcon { font-size: 10px; }
+
+.legendRange {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-left: auto;
+  padding-left: 6px;
+  font-family: var(--font-mono);
+}
+
+/* ── Popup ───────────────────────────────────────────────────────────────── */
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.popup strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.popup span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* ── No flood info badge (bottom-centre) ─────────────────────────────────── */
+.noFloodBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}

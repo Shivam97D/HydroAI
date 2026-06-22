@@ -1,0 +1,249 @@
+/* ── HydroAI Design System ──────────────────────────────────────────────────
+   Theme: Professional hydrology SaaS — warm cream + forest teal + Inter
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── Light mode (default) ─────────────────────────────────────────────── */
+:root {
+  /* Canvas — warm cream */
+  --bg-page:     #F5F0E8;
+  --bg-surface:  #FFFFFF;
+  --bg-card:     #FFFFFF;
+  --bg-raised:   #F8F5F0;
+  --bg-hover:    #EDE8DC;
+  --bg-deep:     #EAE5D8;
+
+  /* Borders */
+  --border-subtle:  #E5DFD4;
+  --border-default: #D0C8BA;
+  --border-strong:  #B0A894;
+
+  /* Aliases used by legacy code */
+  --border-dim:    var(--border-subtle);
+  --border-mid:    var(--border-default);
+  --border-bright: var(--accent);
+
+  /* Text */
+  --text-primary:   #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-muted:     #6B7280;
+  --text-dim:       #9CA3AF;
+
+  /* Accent — forest teal */
+  --accent:      #2B7A5E;
+  --accent-hover:#1F6048;
+  --accent-glow: rgba(43,122,94,0.15);
+  --accent-dim:  rgba(43,122,94,0.08);
+
+  /* Risk levels */
+  --low-color:    #16A34A;
+  --low-bg:       rgba(22,163,74,0.08);
+  --medium-color: #D97706;
+  --medium-bg:    rgba(217,119,6,0.08);
+  --high-color:   #DC2626;
+  --high-bg:      rgba(220,38,38,0.08);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(26,26,26,0.06), 0 1px 2px rgba(26,26,26,0.04);
+  --shadow-md: 0 4px 12px rgba(26,26,26,0.08), 0 2px 4px rgba(26,26,26,0.04);
+  --shadow-lg: 0 8px 28px rgba(26,26,26,0.10), 0 4px 8px rgba(26,26,26,0.04);
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+
+  /* Typography */
+  --font-display: 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+
+  /* Transitions */
+  --t-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-mid:    300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow:   500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Leaflet panel bg */
+  --bg-panel: var(--bg-card);
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-page:     #0F172A;
+  --bg-surface:  #1E293B;
+  --bg-card:     #1E293B;
+  --bg-raised:   #273549;
+  --bg-hover:    #2D3F58;
+  --bg-deep:     #0A1020;
+
+  --border-subtle:  #334155;
+  --border-default: #475569;
+  --border-strong:  #64748B;
+  --border-dim:     #334155;
+  --border-mid:     #475569;
+  --border-bright:  var(--accent);
+
+  --text-primary:   #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted:     #94A3B8;
+  --text-dim:       #64748B;
+
+  --accent:      #38BDF8;
+  --accent-hover:#7DD3FC;
+  --accent-glow: rgba(56,189,248,0.15);
+  --accent-dim:  rgba(56,189,248,0.10);
+
+  --low-color:    #34D399;
+  --low-bg:       rgba(52,211,153,0.10);
+  --medium-color: #FBBF24;
+  --medium-bg:    rgba(251,191,36,0.10);
+  --high-color:   #F87171;
+  --high-bg:      rgba(248,113,113,0.10);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,0.5);
+
+  --bg-panel: var(--bg-card);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Topographic contour watermark */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cellipse cx='350' cy='350' rx='320' ry='230' fill='none' stroke='%23C8BFA8' stroke-width='0.7' opacity='0.5'/%3E%3Cellipse cx='350' cy='350' rx='250' ry='170' fill='none' stroke='%23C8BFA8' stroke-width='0.7' opacity='0.5'/%3E%3Cellipse cx='350' cy='350' rx='180' ry='110' fill='none' stroke='%23C8BFA8' stroke-width='0.7' opacity='0.5'/%3E%3Cellipse cx='350' cy='350' rx='110' ry='55' fill='none' stroke='%23C8BFA8' stroke-width='0.7' opacity='0.5'/%3E%3Cellipse cx='350' cy='350' rx='48' ry='22' fill='none' stroke='%23C8BFA8' stroke-width='0.7' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 700px 700px;
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+[data-theme="dark"] body::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cellipse cx='350' cy='350' rx='320' ry='230' fill='none' stroke='%23334155' stroke-width='0.7' opacity='0.6'/%3E%3Cellipse cx='350' cy='350' rx='250' ry='170' fill='none' stroke='%23334155' stroke-width='0.7' opacity='0.6'/%3E%3Cellipse cx='350' cy='350' rx='180' ry='110' fill='none' stroke='%23334155' stroke-width='0.7' opacity='0.6'/%3E%3Cellipse cx='350' cy='350' rx='110' ry='55' fill='none' stroke='%23334155' stroke-width='0.7' opacity='0.6'/%3E%3Cellipse cx='350' cy='350' rx='48' ry='22' fill='none' stroke='%23334155' stroke-width='0.7' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
+#root { position: relative; z-index: 1; }
+
+/* ── Typography ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+code, .mono { font-family: var(--font-mono); }
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Leaflet overrides ──────────────────────────────────────────────────── */
+.leaflet-container {
+  background: var(--bg-deep) !important;
+  font-family: var(--font-body) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255,255,255,0.85) !important;
+  color: var(--text-muted) !important;
+  font-size: 10px !important;
+}
+
+[data-theme="dark"] .leaflet-control-attribution {
+  background: rgba(15,23,42,0.85) !important;
+}
+
+.leaflet-control-attribution a { color: var(--accent) !important; }
+
+.leaflet-control-zoom a {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-default) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--r-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: var(--text-primary) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-surface) !important;
+}
+
+.leaflet-popup-content { margin: 12px 16px !important; }
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes water-flow {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-fade-in   { animation: fadeIn var(--t-slow) both; }
+.animate-fade-in-1 { animation: fadeIn var(--t-slow) 100ms both; }
+.animate-fade-in-2 { animation: fadeIn var(--t-slow) 200ms both; }
+.animate-fade-in-3 { animation: fadeIn var(--t-slow) 300ms both; }
+.animate-fade-in-4 { animation: fadeIn var(--t-slow) 400ms both; }
+
+/* ── Utility ─────────────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+}

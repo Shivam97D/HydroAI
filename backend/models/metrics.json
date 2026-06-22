@@ -1,0 +1,45 @@
+{
+  "study_area": "Pune (Mutha\u2013Mula reach)",
+  "data_period": "2015-01-01..2024-12-31",
+  "data_source": "Open-Meteo ERA5 (rainfall) + GloFAS v4 (discharge)",
+  "regression_discharge_forecast": {
+    "NSE": 0.8667,
+    "RMSE_m3s": 72.059,
+    "R2": 0.88,
+    "test_samples": 729
+  },
+  "classification_flood_risk": {
+    "ROC_AUC": 0.9873,
+    "precision": 0.9412,
+    "recall": 0.6957,
+    "FAR": 0.0588,
+    "test_samples": 729,
+    "flood_days_in_test": 46
+  },
+  "thresholds_m3s": {
+    "Q2": 1589.0,
+    "Q5": 2463.38,
+    "Q10": 3042.29,
+    "Q25": 3773.76,
+    "annual_max_mean": 1751.53,
+    "warning": 354.47
+  },
+  "feature_columns": [
+    "rainfall_24h",
+    "rainfall_3d",
+    "rainfall_7d",
+    "elevation",
+    "river_flow"
+  ],
+  "runoff_feature_columns": [
+    "rainfall_24h",
+    "rainfall_3d",
+    "rainfall_7d",
+    "river_flow",
+    "discharge_lag1",
+    "discharge_lag3",
+    "discharge_7d_mean",
+    "month_sin",
+    "month_cos"
+  ]
+}

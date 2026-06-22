@@ -1,0 +1,201 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-raised);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.tab.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--border-subtle);
+  font-weight: 600;
+}
+
+.tabMeta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.maxDepthBadge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--high-color);
+  background: var(--high-bg);
+  border: 1px solid rgba(220,38,38,0.2);
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+.terrainBadge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+/* ── Image ───────────────────────────────────────────────────────────────── */
+.imageWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-raised);
+  padding: var(--space-md);
+  gap: var(--space-md);
+  min-height: 380px;
+  justify-content: center;
+}
+
+.floodImage {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-subtle);
+  object-fit: contain;
+}
+
+.downloadLink {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: 6px 16px;
+  transition: all var(--t-fast);
+}
+
+.downloadLink:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+/* ── Loader ──────────────────────────────────────────────────────────────── */
+.loader {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  background: var(--bg-raised);
+}
+
+.loaderSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loader span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── No simulation ────────────────────────────────────────────────────────── */
+.noSim {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+  min-height: 280px;
+  justify-content: center;
+}
+
+.noSimIcon { font-size: 32px; color: var(--text-dim); line-height: 1; }
+
+.noSimTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.noSimDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 340px;
+  line-height: 1.7;
+}
+
+.threshold {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 340px;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: var(--space-sm);
+}
+
+.thresholdBar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-hover);
+  border-radius: 3px;
+  position: relative;
+  overflow: visible;
+}
+
+.thresholdFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.thresholdLine {
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 14px;
+  background: var(--border-strong);
+}
