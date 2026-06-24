@@ -158,6 +158,36 @@
   box-shadow: 0 0 0 3px rgba(167,139,250,0.2);
 }
 
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrap .input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--t-fast);
+  flex-shrink: 0;
+}
+
+.eyeBtn:hover {
+  color: rgba(255,255,255,0.85);
+}
+
 .submitBtn {
   padding: 13px;
   font-size: 15px;
