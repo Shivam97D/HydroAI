@@ -107,11 +107,26 @@ Sent automatically when a user subscribes (via bell icon or Awareness page). Del
 
 > 📷 **[INSERT SCREENSHOT: Welcome email rendered in Gmail — showing the green header, personalized greeting, and "what to expect" section]**
 
-### 6.5.2 Flood Alert Email
+### 6.5.2 Flood Alert Email — Live Test Result
 
-Sent by the scheduler when a High-risk event is detected for a subscriber's location.
+A live test alert was triggered on **25 June 2026** using a one-shot Python script (`backend/send_test_alert.py`) with the following demo data:
 
-> 📷 **[INSERT SCREENSHOT: Flood alert email in Gmail — showing the red risk badge, location, risk score percentage, AI insight paragraph, and safety reminder]**
+| Field | Value |
+|---|---|
+| Recipient | shivam1771dahifale@gmail.com |
+| Location | Pune (Mutha–Mula Reach) |
+| Risk Level | **High** |
+| Risk Score | 87.0% |
+| Rainfall (24h) | 94.2 mm |
+| River Discharge | 1,920 m³/s |
+| Max Inundation Depth | 2.6 m (projected) |
+| Delivery Status | ✅ Delivered (< 3 seconds) |
+
+The email was delivered successfully to the Gmail inbox, confirming end-to-end functionality of the aiosmtplib SMTP pipeline — TLS port 587, App Password authentication, HTML MIME body rendering correctly.
+
+> 📷 **[INSERT SCREENSHOT: The actual test flood alert email received in shivam1771dahifale@gmail.com — open Gmail now and screenshot the full email view showing the red "High" badge, 87.0% risk score, Pune location, insight paragraph, and safety reminder at the bottom]**
+
+> 📷 **[INSERT SCREENSHOT: Gmail inbox view showing the email subject "⚠️ HydroAI Flood Alert — HIGH RISK — Pune (Demo)" with timestamp 25 June 2026 in the inbox list]**
 
 ---
 
